@@ -1,0 +1,7 @@
+// File lab3Script
+
+# Script to create library and executable
+
+gcc -c -Wall geoInfo.c -o geoInfo.o 
+ar -cru libGeoInfo.a geoInfo.o
+gcc -o testLib lab3.c -L. -lGeoInfo -lm 

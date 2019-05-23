@@ -1,0 +1,20 @@
+// File makeDynamic
+
+# Make file to create dynamic library and executable to test it
+
+testDynamic: lab3Dynamic.o libGeoInfo.so
+	gcc -o testDynamic lab3Dynamic.o -L. -lGeoInfo -ldl 
+
+# chain rules
+
+lab3Dynamic.o: lab3Dynamic.c
+	gcc -c -o lab3Dynamic.o lab3Dynamic.c
+
+libGeoInfo.so: geoInfo.o
+	gcc -shared -o libGeoInfo.so geoInfo.o -lm
+
+geoInfo.o: geoInfo.c
+	gcc -fPIC -c geoInfo.c 
+
+clean:
+	rm *.o testDynamic

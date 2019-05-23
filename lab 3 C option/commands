@@ -1,0 +1,32 @@
+
+CHANGE IN LAB3.C TO PASS SURFACE TO SPHERE AND PRINT RESULT OF SURFACE AS WELL AS VOL!!!
+-- ALSO FIX SPACING W/ ENTER FLOATS
+-- verify output for array after sorting (loss of precision?)
+-- fix spacing w/ entering angles (newline after sin is:...)
+
+-- result of summing floats on calc: 1100159.001
+
+# Script to create library and executable
+gcc -c geoInfo.c
+ar -cru libGeoInfo.a geoInfo.o
+gcc -o testLib lab3.c -L. -lGeoInfo -lm
+
+input numbers:
+sphere radius: 17.583
+cyl radius: 13.35
+cyl height: 3.71
+
+f.p numbers: 
+0.3476789
+100400.8
+0.0000099
+1.343567
+78.34567
+1678.567
+997999.6
+0.0000009
+
+sin angles: 
+45
+36
+0.345

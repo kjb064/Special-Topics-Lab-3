@@ -1,0 +1,20 @@
+// File makeShared
+
+# Make file to create shared library and executable to test it
+
+testShare: lab3.o libGeoInfo.so
+	gcc -o testShare lab3.o -L. -lGeoInfo -lm
+
+# chain rules
+
+lab3.o: lab3.c
+	gcc -c -o lab3.o lab3.c
+
+libGeoInfo.so: geoInfo.o
+	gcc -shared -o libGeoInfo.so geoInfo.o 
+
+geoInfo.o: geoInfo.c
+	gcc -fPIC -c geoInfo.c
+
+clean:
+	rm *.o testShare
